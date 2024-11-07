@@ -11,11 +11,14 @@ export default function Home() {
     const handleOnChange = (e) => {
         const newValue = e.target.value;
         setInputValue(newValue);
-        console.log(newValue);
-        if (regexEmail.test(newValue)) {
+        if (newValue.length === 0) {
             setError(false);
         } else {
-            setError(true);
+            if (regexEmail.test(newValue)) {
+                setError(false);
+            } else {
+                setError(true);
+            }
         }
     };
 
