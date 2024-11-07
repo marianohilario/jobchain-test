@@ -3,19 +3,94 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #ffffff;
+    --foreground: #171717;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    :root {
+        --background: #0a0a0a;
+        --foreground: #ededed;
+    }
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+    color: var(--foreground);
+    background: var(--background);
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.wrapper {
+    width: 360px;
+    height: 60px;
+    position: relative;
+}
+
+.input {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #141534;
+    border-radius: 15px;
+    border: 1.5px solid #1d1c47;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.input::placeholder {
+    color: #7876b1;
+}
+
+.label {
+    color: #7d77ff;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    position: absolute;
+    left: 20px;
+    top: 24px;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.input:focus {
+    padding-bottom: 11px;
+    padding-top: 27px;
+    border-color: #7871ff;
+}
+
+.input:focus::placeholder {
+    color: transparent;
+}
+
+.input:focus + .label {
+    left: 20px;
+    top: 10px;
+    font-size: 10px;
+    opacity: 1;
+}
+
+.input.error {
+    border: 5px solid rgba(200, 65, 75, 0.2);
+    background: rgba(180, 75, 75, 0.1);
+    color: var(--Statuses-Red---Alert, #b44b4b);
+    outline: none;
+}
+
+.input.error ~ .label {
+    color: #b44b4b;
+}
+
+.closeBtn {
+    position: absolute;
+    left: 317px;
+    top: 18px;
+    height: 25px;
+    width: 25px;
 }
